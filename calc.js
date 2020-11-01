@@ -9,7 +9,7 @@ var num;
 btnNums.forEach(button => {
     button.addEventListener('click', () => {
         num = button.textContent;
-        if (firstNum) {
+        if (firstNum && num != '.') {
             screen.textContent = num;
             //console.log('if')
         } else {
@@ -59,6 +59,8 @@ function calculate() {
     }
     else if (activeSign == 'x') {
         total *= num;
+    } else {
+        total = num;
     }
     console.log(total);
 }
@@ -67,11 +69,33 @@ function equals() {
     calculate();
     screen.textContent = total;
 
-    firstNum = true;
     total = parseFloat(screen.textContent);
+    firstNum = true;
     activeSign = '';
 }
 
 const btnEquals = document.getElementById('op-eq');
 
 btnEquals.addEventListener('click', equals);
+
+const btnAllClr = document.getElementById('op-allClr');
+const btnClr = document.getElementById('op-clr');
+const btnSign = document.getElementById('op-sign');
+
+btnAllClr.addEventListener('click', () => {
+    total = null;
+    screen.textContent = 0;
+    firstNum = true;
+    activeSign = '';
+})
+
+btnClr.addEventListener('click', () => {
+    screen.textContent = 0;
+    firstNum = true;
+})
+
+btnSign.addEventListener('click', () => {
+    num = parseFloat(screen.textContent);
+    num *= -1;
+    screen.textContent = num;
+})
