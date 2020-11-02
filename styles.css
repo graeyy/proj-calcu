@@ -1,19 +1,48 @@
-
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap');
+font-family: 'Orbitron', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+    :root {
+        --richBlack: #0C1821;
+        --oxfordBlue: #1B2A41;
+        --charcoal: #324A5F;
+        --lavender: #CCC9DC;
+    }
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
+
+    body {
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    #inst {
+       margin: auto;
+    }
+    #inst li {
+        list-style-type: disc;
+    }
+    button {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 1.25em;
+    }
     #screen {
-        border: 1px solid black;
+        border: 1px solid transparent;
         height: 20%;
         margin: 10px;
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
-        padding: 0 20px 20px 0;
+        padding: 0 10px 20px 60px;
+        font-size: 2em;
+        background-color: var(--lavender);
+        overflow: hidden;
     }
 
     #btn-container {
@@ -25,7 +54,7 @@
             "num7 num8 num9 op-mul"
             "num4 num5 num6 op-sub"
             "num1 num2 num3 op-add"
-            "num0 op-dec op-eq op-eq";
+            "op-dec num0 op-eq op-eq";
         grid-gap: 2px;
     }
 
@@ -33,6 +62,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .num {
+        background-color: white;
+    }
+
+    .op, .sign {
+        background-color: var(--charcoal);
+        color: white;
+    }
+
+    #op-eq {
+        background-color: var(--oxfordBlue);
+        color: white;
     }
 
     #num1 {grid-area: num1;}
@@ -51,7 +94,11 @@
     #op-div {grid-area: op-div;}
     #op-mul {grid-area: op-mul;}
     #op-eq {grid-area: op-eq;}
-    #op-dec {grid-area: op-dec;}
+    #op-dec {
+        grid-area: op-dec;
+        font-weight: 800;
+        font-size: 2em;
+    }
     #op-clr {grid-area: op-clr;}
     #op-allClr {grid-area: op-allClr;}
     #op-sign {grid-area: op-sign;}
@@ -59,9 +106,10 @@
     #calc {
         width: 400px;
         height: 500px;
-        border: 1px solid black;
+        border: 1px solid gray;
         margin: 50px auto;
         display: flex;
         flex-direction: column;
+        background-color: var(--richBlack);
     }
 }
